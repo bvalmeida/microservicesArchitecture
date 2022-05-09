@@ -9,10 +9,11 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Slf4j
 @Service
-public class FraudServiceImpl implements FraudService{
+public class FraudServiceImpl implements FraudService {
 
     private final FraudRepository fraudRepository;
     private final ConvertUtils convertUtils;
@@ -39,5 +40,12 @@ public class FraudServiceImpl implements FraudService{
                 .createAt(LocalDateTime.now())
                 .build());
         return fraud.isFraud();
+    }
+
+    @Override
+    public List<FraudResponse> listAll() {
+        List<FraudEntity> listEntity = this.fraudRepository.findAll();
+        List<FraudResponse> listResponse = (List<FraudResponse>) this.convertUtils.convertToListResponse(listEntity, FraudResponse.class);
+        return listResponse;
     }
 }
