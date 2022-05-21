@@ -9,6 +9,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="notification" />
         <module name="fraud" />
+        <module name="service-registry" />
         <module name="customer" />
       </profile>
     </annotationProcessing>

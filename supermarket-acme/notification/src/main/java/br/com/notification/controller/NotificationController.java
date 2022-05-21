@@ -34,19 +34,21 @@ public class NotificationController {
         return ResponseEntity.status(HttpStatus.CREATED).build();
     }
 
-    @Operation(summary = "find all notifications", description = "find all notifications")
+    @Operation(summary = "find all notifications", description = "list all notifications")
     @ApiResponse(responseCode = "200", description = "find all notifications")
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
     public List<NotificationResponse> listAllNotification(){
+        log.info("Calling controller to list all notification {}");
         return this.notificationService.listAll();
     }
 
     @Operation(summary = "delete notifications by id", description = "delete any notification by id")
-    @ApiResponse(responseCode = "204", description = "delete notification")
+    @ApiResponse(responseCode = "204", description = "delete success")
     @DeleteMapping
     @ResponseStatus(HttpStatus.OK)
-    public void deleteNotification(@PathVariable Long id){
+    public void deleteNotification(@RequestParam Long id){
+        log.info("Calling controler to delete notification by id {}");
         this.notificationService.deleteNotification(id);
     }
 

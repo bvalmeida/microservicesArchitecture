@@ -8,7 +8,6 @@ import br.com.notification.repository.NotificationRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
-import java.time.LocalDateTime;
 import java.util.List;
 
 @Slf4j
@@ -26,7 +25,6 @@ public class NotificationServiceImpl implements NotificationService{
 
     @Override
     public NotificationResponse createNotification(NotificationRequest notificationRequest) {
-        log.info("Calling the method to create notification {}", notificationRequest);
         var notificationEntity = (NotificationEntity) this.convertUtils.convertRequestToEntity(notificationRequest, NotificationEntity.class);
         var entity = this.notificationRepository.save(notificationEntity);
         return (NotificationResponse) this.convertUtils.convertEntityToResponse(entity, NotificationResponse.class);

@@ -40,6 +40,7 @@ public class CustomerController {
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
     public List<CustomerResponse> listAllCustomer(){
+        log.info("Calling controler to list all customers");
         return this.customerService.listAll();
     }
 }

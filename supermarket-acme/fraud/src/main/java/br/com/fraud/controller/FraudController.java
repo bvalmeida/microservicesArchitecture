@@ -38,6 +38,7 @@ public class FraudController {
     @ApiResponse(responseCode = "200", description = "get Fraud is success")
     @GetMapping("/is-fraud/{customerId}")
     public Boolean isFraud(@PathVariable("customerId") Long customerId){
+        log.info("Calling controler to find all frauds {}");
         return this.fraudService.isFraud(customerId);
     }
 
