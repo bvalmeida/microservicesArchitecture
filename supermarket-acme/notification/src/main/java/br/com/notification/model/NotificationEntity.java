@@ -17,9 +17,15 @@ public class NotificationEntity {
     @Id
     @SequenceGenerator(name = "notification_id_sequence", sequenceName = "notification_id_sequence", allocationSize = 1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "notification_id_sequence")
-    private long id;
+    private Long id;
 
     private String notification;
 
     private LocalDateTime createAt;
+
+    private Long idCustomer;
+
+    private String sender;
+
+    private String customer_mail;
 }

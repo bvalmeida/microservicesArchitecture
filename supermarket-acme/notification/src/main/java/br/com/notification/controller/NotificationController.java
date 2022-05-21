@@ -41,4 +41,13 @@ public class NotificationController {
     public List<NotificationResponse> listAllNotification(){
         return this.notificationService.listAll();
     }
+
+    @Operation(summary = "delete notifications by id", description = "delete any notification by id")
+    @ApiResponse(responseCode = "204", description = "delete notification")
+    @DeleteMapping
+    @ResponseStatus(HttpStatus.OK)
+    public void deleteNotification(@PathVariable Long id){
+        this.notificationService.deleteNotification(id);
+    }
+
 }

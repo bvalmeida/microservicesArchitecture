@@ -16,4 +16,7 @@ public class NotificationResponse {
     private Long id;
     private String notification;
     private LocalDateTime createAt;
+    private Long idCustomer;
+    private String sender;
+    private String customer_mail;
 }

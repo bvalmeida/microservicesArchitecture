@@ -8,6 +8,7 @@ import br.com.notification.repository.NotificationRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Slf4j
@@ -36,5 +37,10 @@ public class NotificationServiceImpl implements NotificationService{
         List<NotificationEntity> listEntity = this.notificationRepository.findAll();
         List<NotificationResponse> listResponse = (List<NotificationResponse>) this.convertUtils.convertToListResponse(listEntity, NotificationResponse.class);
         return listResponse;
+    }
+
+    @Override
+    public void deleteNotification(Long id) {
+        this.notificationRepository.deleteById(id);
     }
 }

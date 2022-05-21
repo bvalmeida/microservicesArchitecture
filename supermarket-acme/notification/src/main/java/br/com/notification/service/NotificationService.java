@@ -9,5 +9,6 @@ public interface NotificationService {
 
     NotificationResponse createNotification(NotificationRequest notificationRequest);
     List<NotificationResponse> listAll();
+    void deleteNotification(Long id);
 
 }
